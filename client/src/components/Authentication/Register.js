@@ -77,10 +77,12 @@ class Signup extends Component {
           </div>
 
           <button
-                      className="btn btn-primary btn-lg btn-block my-5"
-                      onClick={this.handleSubmit}
-                      type="submit"
-                    >Sign Up</button>
+            className="btn btn-primary btn-lg btn-block my-5"
+            onClick={this.handleSubmit}
+            type="submit"
+          >
+            Sign Up
+          </button>
         </form>
 
       </div>        
