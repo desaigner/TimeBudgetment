@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import logo from "../../logo.svg";
+// import logo from "../../logo.svg";
 import axios from "axios";
 
 class LoginForm extends Component {
@@ -56,33 +56,33 @@ class LoginForm extends Component {
           <div class="form-group">
             <label className="form-label" htmlFor="username"><small>USERNAME</small></label>
             <input
-                          className="form-control"
-                          type="text"
-                          id="username"
-                          name="username"
-                          placeholder="Username"
-                          value={this.state.username}
-                          onChange={this.handleChange}
-                        />    
+              className="form-control"
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              value={this.state.username}
+              onChange={this.handleChange}
+            />    
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label className="form-label" htmlFor="password"> <small>PASSWORD </small>{" "}</label>
             <input
-                        className="form-control"
-                        placeholder="Password"
-                        type="password"
-                        name="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                      />
+              className="form-control"
+              placeholder="Password"
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
           </div>
 
           <button
-                      className="btn btn-primary btn-lg btn-block my-5"
-                      onClick={this.handleSubmit}
-                      type="submit"
-                    >Login</button>
+            className="btn btn-primary btn-lg btn-block my-5"
+            onClick={this.handleSubmit}
+            type="submit"
+          >Login</button>
         </form>
 
       </div>        
