@@ -15,11 +15,11 @@ class About extends Component {
           <h4>How it works is simple:</h4>
           <ul className="list-group">
             <li className="list-group-item list-group-item-info">Sign In or Create and Account</li>
-          <li className="list-group-item list-group-item-info">Create or Select A Project</li>
-          <li className="list-group-item list-group-item-info">
+            <li className="list-group-item list-group-item-info">Create or Select A Project</li>
+            <li className="list-group-item list-group-item-info">
             View, Create, and Update the tasks associated with the project
-          </li>
-          <li className="list-group-item list-group-item-info">Add Costs and Expenses for each task</li>
+            </li>
+            <li className="list-group-item list-group-item-info">Add Costs and Expenses for each task</li>
           </ul>
           
         </div>
