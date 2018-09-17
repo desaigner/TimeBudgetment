@@ -38,7 +38,7 @@ class Navbar extends Component {
                 </Link>
                 &#160;<span className="text-info">|</span>&#160;
                 <Link to="/projects" className="btn btn-link text-secondary">
-                  <small >PROJECTS</small>
+                  <small >BUDGETS</small>
                 </Link>
                 &#160;<span className="text-info">|</span>&#160;
                 <Link to="/about" className="btn btn-link text-secondary">

@@ -15,19 +15,20 @@ class Projects extends Component {
       taskModalIsOpen: false,
       projectId: null
     };
-    console.log("in construct", props);
+    //console.log("in construct", props);
     this.handleNewProject = this.handleNewProject.bind(this);
     this.handleExpand = this.handleExpand.bind(this);
     this.submitNewProject = this.submitNewProject.bind(this);
     this.handleAddTask = this.handleAddTask.bind(this);
     this.submitNewTask = this.submitNewTask.bind(this);
-    console.log("this ", this.props);
+    //console.log("this ", this.props);
   }
 
   // upon componet mounting
   componentDidMount() {
     this.updateProjectList();
   }
+
   async updateProjectList() {
     if (this.props.user) {
       const response = await axios.get(`/api/projects/${this.props.user._id}`);
@@ -51,9 +52,9 @@ class Projects extends Component {
     this.updateProjectList();
   }
 
-  //IS this gonna work??
+  //Is this gonna work??
   async handleAddTask(event, id) {
-    console.log("creating new task", id);
+    //console.log("creating new task", id);
     event.preventDefault();
     this.setState({ projectId: id, taskModalIsOpen: true });
   }
@@ -75,7 +76,7 @@ class Projects extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container bg-light p-3">
         <ProjectForm
           user={this.props.user}
           show={this.state.modalIsOpen}
@@ -86,24 +87,32 @@ class Projects extends Component {
           show={this.state.taskModalIsOpen}
           dismissDialog={this.submitNewTask}
         />
-        <div class="projectsbg">
-          <h1 class="projects">Your Projects</h1>
-        </div>
-        <button class="btn btn-primary" onClick={this.handleNewProject}>
-          Add New Project
+        
+        <h1 class="text-info">Your Budgets</h1>
+        
+        <button class="btn btn-primary btn-lg btn-block" onClick={this.handleNewProject}>
+          Add New Budget
         </button>
-        <p />
-        {this.state.projects.map(p => {
-          const id = p._id;
-          return (
-            <Project
-              data={p}
-              expand={this.state.show.includes(id)}
-              handleExpand={this.handleExpand}
-              handleAddTask={this.handleAddTask}
-            />
-          );
-        })}
+        <div className="bg-info mt-5 p-3">
+        
+        
+          {this.state.projects.map(p => {
+            const id = p._id;
+            return (
+              <p className="bg-light p-1 m-1 rounded">
+              <Project
+                data={p}
+                expand={this.state.show.includes(id)}
+                handleExpand={this.handleExpand}
+                handleAddTask={this.handleAddTask}
+              />
+              </p>
+            );
+          })}
+        
+
+        </div>
+        
       </div>
     );
   }
