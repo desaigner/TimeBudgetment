@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Project from "./project";
+import Project from "./Project";
 import ProjectForm from "./project-form";
-import TaskForm from "./tasks";
+import TaskForm from "./Tasks";
 //TO GRAB USER ID, USE this.props.userId
 
 class Projects extends Component {

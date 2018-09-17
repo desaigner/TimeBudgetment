@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import TaskForm from "./tasks";
+import TaskForm from "./Tasks";
 
 class Task extends Component {
   render() {
