@@ -6,3 +6,146 @@ body {
 .navbg {
     background-color: #e3f2fd;
 }
+
+/* new added from updates */
+
+.App {
+    text-align: center;
+  }
+  
+  .App-header {
+    background-color: #3d474d;
+    height: 80px;
+  
+    padding: 20px;
+    color: white;
+  }
+  
+  .App-title {
+    font-size: 2em;
+    float: right;
+    justify-content: right;
+    font-family: "Pacifico", cursive;
+  }
+  
+  .App-intro {
+    font-size: large;
+  }
+  
+  .icons {
+    text-align: right;
+    padding: 5px;
+    margin: 5px;
+  }
+  
+  /* .taskinfo {
+    background-color: white;
+    border-radius: 10px;
+  } */
+  
+  .navlinks {
+    color: white;
+  }
+  
+  button {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+    background-color: #e1f5fe;
+    border-radius: 5px;
+  }
+  
+  .projectCard {
+    background-color: #a19aff;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    text-align: left;
+    width: 60%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .projectsbg {
+    padding: 10px;
+    margin-bottom: 15px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .projects {
+    font-family: "Pacifico", cursive;
+  }
+  
+  .projectDate {
+    font-size: 16px;
+    float: right;
+    background-color: rgb(206, 206, 206);
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .budgetcard {
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .titlecard {
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .taskcard {
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  /* .rcorners1 {
+    border-radius: 25px;
+    background-color: #73ad21;
+    padding: 20px;
+    width: 50%;
+    align-content: center
+  } */
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  
+  .modal-main {
+    position: fixed;
+    background: white;
+    width: 80%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .display-block {
+    display: block;
+  }
+  
+  .display-none {
+    display: none;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
