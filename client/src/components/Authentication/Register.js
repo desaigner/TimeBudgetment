@@ -9,7 +9,7 @@ class Signup extends Component {
       username: "",
       password: "",
       confirmPassword: "",
-      redirect: false
+      redirect: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -35,15 +35,19 @@ class Signup extends Component {
       if (!response.data.errmsg) {
         
         console.log("successful signup");
+
+        const response = await axios.post("/user/login", {
+          username: this.state.username,
+          password: this.state.password
+        });
+         console.log("login response: ", response);
+        const { password, ...user } = response.data.user; // remove password from user
+        // update App.js state
+        this.props.updateUser({ user: user });
+
         // redirect to login page
         this.setState({ username: "",
-        password: "", redirect: true });
-        
-          const { redirect } = this.state;
-      
-           if (redirect) {
-             return <Redirect to='/somewhere'/>;
-           }
+        password: "", redirectTo: "/" });
       
       } else {
         console.log("username already taken");
@@ -54,6 +58,9 @@ class Signup extends Component {
   }
 
   render() {
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    }
     return (
       <div className="container">
       <div className="row">
