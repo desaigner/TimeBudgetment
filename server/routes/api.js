@@ -7,21 +7,22 @@ const router = express.Router();
 router.get("/projects/:id", async (req, res, next) => {
   console.log("===== project!!======");
   console.log(req.params.id);
-  //console.log(Project);
   try {
     // find all projects associated to a user Id
     const projects = await Project.find(
       { userId: req.params.id },
-      "projectTitle"
+      "projectTitle projectBudget projectDate _id"
     ).lean();
 
     for (project of projects) {
-      console.log(project.projectTitle);
       project.tasks = await Task.find(
         { projectId: project._id },
-        "taskName taskDescription"
+        "taskName taskHours taskRate taskDate"
       ).lean();
-      console.log("added tasks", project.tasks);
+      project.actualBudget = 0;
+      for (task of project.tasks) {
+        project.actualBudget += task.taskHours * task.taskRate;
+      }
     }
     console.log("projects =", projects);
     res.json(projects);
@@ -34,26 +35,20 @@ router.get("/projects/:id", async (req, res, next) => {
 router.post("/projects", async (req, res, next) => {
   console.log("Creating a project using", req.body);
   try {
+    console.log(req.body.projectBudget);
     res.json(await Project.create(req.body));
   } catch (err) {
     console.log("something went wrong creating a project", err);
   }
 });
 
-// tasks routes
-
-router.get("/tasks/:id", (req, res, next) => {
-  console.log("TASK");
-  console.log("Fetching task");
-});
-
 //POST route for tasks
 router.post("/tasks", async (req, res, next) => {
   try {
     console.log(req.body);
-    res.json(await Task.create(req.body).lean());
+    res.json(await Task.create(req.body));
   } catch (err) {
-    console.log("something wen wrong creating a task", err);
+    console.log("something went wrong creating a task", err);
   }
 });
 
