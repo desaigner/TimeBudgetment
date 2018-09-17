@@ -1,16 +1,26 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Project from "./Project";
+import Project from "./project";
+import ProjectForm from "./project-form";
+import TaskForm from "./tasks";
 //TO GRAB USER ID, USE this.props.userId
 
 class Projects extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: []
+      projects: [],
+      show: [],
+      modalIsOpen: false,
+      taskModalIsOpen: false,
+      projectId: null
     };
     console.log("in construct", props);
     this.handleNewProject = this.handleNewProject.bind(this);
+    this.handleExpand = this.handleExpand.bind(this);
+    this.submitNewProject = this.submitNewProject.bind(this);
+    this.handleAddTask = this.handleAddTask.bind(this);
+    this.submitNewTask = this.submitNewTask.bind(this);
     console.log("this ", this.props);
   }
 
@@ -25,56 +35,74 @@ class Projects extends Component {
     }
   }
 
-  // TODO i might not need this function
-  // handleNewProject  the program if cancel is hit on the alert
   async handleNewProject(event) {
     console.log("enter create new project");
     event.preventDefault();
-    const message = prompt(
-      "What is the name of the project that you'd like to add?"
-    );
-    if (!message) return;
-    const projectTitle = message.valueOf();
-    try {
-      await axios.post("/api/projects", {
-        projectTitle: projectTitle,
-        userId: this.props.user._id
-      });
-      this.updateProjectList();
-    } catch (err) {
-      console.log("something went wrong adding Project", err);
+    this.setState({ modalIsOpen: true });
+  }
+
+  submitNewProject() {
+    this.setState({ modalIsOpen: false });
+    this.updateProjectList();
+  }
+
+  submitNewTask() {
+    this.setState({ taskModalIsOpen: false });
+    this.updateProjectList();
+  }
+
+  //IS this gonna work??
+  async handleAddTask(event, id) {
+    console.log("creating new task", id);
+    event.preventDefault();
+    this.setState({ projectId: id, taskModalIsOpen: true });
+  }
+
+  async handleExpand(id) {
+    console.log("Expanding", id);
+    //index is equal to indexOf id; if its -1, id does not exist in the array
+    const index = this.state.show.indexOf(id);
+    let newShow = Array.from(this.state.show);
+    if (index != -1) {
+      //if index is not equal to -1, collapse task info via splice
+      newShow.splice(index, 1);
+    } else {
+      //otherwise expand task info
+      newShow.push(id);
     }
+    this.setState({ show: newShow });
   }
 
   render() {
-    // const projectList = this.state.projects.map(aProject => {
-    //   return (
-    //     <div>
-    //       <p>{aProject.projectTitle}</p>
-    //       <div className="projectCard">
-    //         {aProject.tasks.map(aTask => {
-    //           return (
-    //             <div>
-    //               {aTask.taskName} <br /> {aTask.taskDescription}
-    //             </div>
-    //           );
-    //         })}
-
-    //         <button>View/Add Project Details</button>
-    //         <p>
-    //           <button>Delete Project</button>
-    //         </p>
-    //       </div>
-    //     </div>
-    //   );
-    // });
-
     return (
-      <div className="container bg-light p-5">
-        <h1>Your Projects</h1>
-        <button className="btn btn-primary btn-lg btn-block" onClick={this.handleNewProject}>Add New Project</button>
+      <div>
+        <ProjectForm
+          user={this.props.user}
+          show={this.state.modalIsOpen}
+          dismissDialog={this.submitNewProject}
+        />
+        <TaskForm
+          projectId={this.state.projectId}
+          show={this.state.taskModalIsOpen}
+          dismissDialog={this.submitNewTask}
+        />
+        <div class="projectsbg">
+          <h1 class="projects">Your Projects</h1>
+        </div>
+        <button class="btn btn-primary" onClick={this.handleNewProject}>
+          Add New Project
+        </button>
+        <p />
         {this.state.projects.map(p => {
-          return <Project data={p} />;
+          const id = p._id;
+          return (
+            <Project
+              data={p}
+              expand={this.state.show.includes(id)}
+              handleExpand={this.handleExpand}
+              handleAddTask={this.handleAddTask}
+            />
+          );
         })}
       </div>
     );
