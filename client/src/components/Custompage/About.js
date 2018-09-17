@@ -5,7 +5,7 @@ class About extends Component {
     return (
       <container className="container bg-light">
       <div className="p-5">
-        <h3>Everyday is a bank account, and time is our currency.</h3>
+        <h3>Keep in Budget while Managing Time.</h3>
         <div className="aboutDescription m-2">
           This is a simple web application perfect for freelancers, remote
           workers, or anyone who doesn't work a 9 to 5 job that would like to
