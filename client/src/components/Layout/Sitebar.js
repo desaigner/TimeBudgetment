@@ -49,7 +49,7 @@ class Navbar extends Component {
                   <small >PROFILE</small>
                 </Link>
                 &#160;<span className="text-info">|</span>&#160;
-                <Link to="/" className="btn btn-link text-secondary">
+                <Link to="/contact" className="btn btn-link text-secondary">
                   <small>CONTACT</small>
                 </Link>
                 &#160;<span className="text-info">|</span>&#160;
@@ -71,7 +71,7 @@ class Navbar extends Component {
                   <small >SIGNUP</small>
                 </Link>
                 &#160;<span className="text-info">|</span>&#160;
-                <Link to="/" className="btn btn-link text-secondary">
+                <Link to="/contact" className="btn btn-link text-secondary">
                   <small>CONTACT</small>
                 </Link>
                 &#160;<span className="text-info">|</span>&#160;

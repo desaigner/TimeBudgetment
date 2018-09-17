@@ -13,6 +13,7 @@ import Navbar from "./components/Layout/Sitebar";
 import Footer from "./components/Layout/Footer";
 ///Customepage
 import About from "./components/Custompage/About";
+import Contact from "./components/Custompage/Contact";
 ///Projects
 import Projects from "./components/Projects/Projects";
 ///Dashboard
@@ -63,6 +64,7 @@ class App extends Component {
                             render={() => <LoginForm updateUser={this.updateUser} />}
                         />
                         <Route path="/about" render={() => <About />} />
+                        <Route path="/contact" render={() => <Contact />} />
                         <Route
                             path="/projects"
                             render={() => <Projects user={this.state.user} />}
