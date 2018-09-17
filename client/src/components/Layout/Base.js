@@ -7,7 +7,7 @@ class Home extends Component {
 
     return (
       <div className="container-fluid bg-light p-5">
-        <div className="row p-5">
+        <div className="row p-3">
           <img src={logo} className="App-logo mx-auto d-block" alt="logo" />
         </div>
         <div className="aboutDescription p-5"><h3>Everyday is a bank account, and <span className="wordwrap">time is our currency.</span></h3>
