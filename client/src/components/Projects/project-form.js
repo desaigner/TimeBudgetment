@@ -52,16 +52,16 @@ class ProjectForm extends Component {
       bottom: 0,
       left: 0,
       right: 0,
-      backgroundColor: "rgba(0,0,0,0.3)",
-      padding: 50
+      backgroundColor: "rgba(0,0,0,0.75)",
+      padding: 50,
+      zIndex: 101
     };
 
     // The modal "window"
     const modalStyle = {
       backgroundColor: "#fff",
       borderRadius: 15,
-      maxWidth: 500,
-      minHeight: 300,
+      maxWidth: 720,
       margin: "0 auto",
       padding: 30
     };
@@ -72,74 +72,71 @@ class ProjectForm extends Component {
     return (
       <div style={backdropStyle}>
         <div style={modalStyle}>
-          <h4>Project Info</h4>
-          <form className="form-horizontal">
-            <div className="form-group">
-              <div>
-                <label className="form-label" htmlFor="project">
-                  Project Name
-                </label>
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h3 className="text-danger">New Budget Setup</h3>
+                <hr className="m-1 border-info"/>
               </div>
-              <div className="col-6 col-mr-auto">
-                <input
-                  className="form-input"
-                  type="text"
-                  id="projectTitle"
-                  name="projectTitle"
-                  placeholder="ProjectTitle"
-                  value={this.state.projectTitle}
-                  onChange={this.handleChange}
-                />
+              
+              <div className="col-12">
+                <form>
+                  <div className="form-group">
+                    <label htmlFor="project">Name Your Budget</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="projectTitle"
+                      name="projectTitle"
+                      placeholder="Budget Title"
+                      value={this.state.projectTitle}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="project">Budget About</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="projectDescription"
+                      name="projectDescription"
+                      placeholder="Budget Description"
+                      value={this.state.projectDescription}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="project">Budget Amount</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="projectBudget"
+                      name="projectBudget"
+                      placeholder="Estimate Budget Amount"
+                      value={this.state.projectBudget}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <button
+                    className="btn btn-primary btn-lg btn-block my-4"
+                    onClick={this.handleSubmit}
+                    type="submit"
+                  >
+                    Finished
+                  </button>
+                </form>
+                <hr className="m-1 border-info"/>
+                <button
+                    className="btn btn-danger btn-lg btn-block my-4"
+                    onClick={this.handleCancel}
+                    type="submit"
+                  >
+                    Close Setup
+                  </button>
               </div>
             </div>
-            <div className="form-group">
-              <div className="col-6 col-mr-auto">
-                <label className="form-label">Project Description</label>
-              </div>
-              <div>
-                <input
-                  className="form-input"
-                  placeholder="projectDescription"
-                  type="projectDescription"
-                  name="projectDescription"
-                  value={this.state.projectDescription}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <div>
-                <label className="form-label">Budget Amount</label>
-              </div>
-              <div className="col-6 col-mr-auto">
-                <input
-                  className="form-input"
-                  placeholder="projectBudget"
-                  type="projectBudget"
-                  name="projectBudget"
-                  value={this.state.projectBudget}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <p />
-            <div className="form-group ">
-              {/* <div className="col-7" /> */}
-              <button
-                className="btn btn-primary col-3 col-mr-auto"
-                onClick={this.handleSubmit}
-                type="submit"
-              >
-                Save
-              </button>
-              <button
-                className="btn btn-primary col-3"
-                onClick={this.handleCancel}
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
+          </div>
+          
         </div>
       </div>
     );

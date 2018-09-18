@@ -11,6 +11,15 @@ body {
   white-space: nowrap;
 }
 
+.lgFont {
+  font-size: 1.25em;
+  font-family: 'IBM Plex Serif', serif;
+}
+
+.smFont {
+  font-size: .75em;
+}
+
 /* new added from updates */
 
 /* .App {

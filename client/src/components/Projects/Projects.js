@@ -98,7 +98,7 @@ class Projects extends Component {
         
         <h1 class="text-info">Your Budgets</h1>
         
-        <button class="btn btn-primary btn-lg btn-block" onClick={this.handleNewProject}>
+        <button class="btn btn-danger btn-lg btn-block" onClick={this.handleNewProject}>
           Add New Budget
         </button>
         <div className="bg-info mt-5 p-3">
@@ -107,7 +107,7 @@ class Projects extends Component {
           {this.state.projects.map(p => {
             const id = p._id;
             return (
-              <p className="bg-light p-1 m-1 rounded">
+              <div className="bg-light p-1 my-3 rounded">
               <Project
                 data={p}
                 expand={this.state.show.includes(id)}
@@ -115,7 +115,7 @@ class Projects extends Component {
                 handleAddTask={this.handleAddTask}
                 handleDelete={this.handleDelete}
               />
-              </p>
+              </div>
             );
           })}
         

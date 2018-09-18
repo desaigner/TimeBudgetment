@@ -69,16 +69,16 @@ class TaskForm extends Component {
       bottom: 0,
       left: 0,
       right: 0,
-      backgroundColor: "rgba(0,0,0,0.3)",
-      padding: 50
+      backgroundColor: "rgba(0,0,0,0.75)",
+      padding: 50,
+      zIndex: 100
     };
 
     // The modal "window"
     const modalStyle = {
       backgroundColor: "#fff",
       borderRadius: 15,
-      maxWidth: 500,
-      minHeight: 300,
+      maxWidth: 720,
       margin: "0 auto",
       padding: 30
     };
@@ -89,67 +89,71 @@ class TaskForm extends Component {
     return (
       <div style={backdropStyle}>
         <div style={modalStyle}>
-          <h4>Task Info</h4>
-          <form className="form-horizontal">
-            <div className="form-group">
-              <div>
-                <label className="form-label" htmlFor="project">
-                  Task Name
-                </label>
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h3 className="text-danger">Add Task Information</h3>
+                <hr className="m-1 border-info"/>
               </div>
-              <div className="col-6 col-mr-auto">
-                <input
-                  className="form-input"
-                  type="text"
-                  id="taskName"
-                  name="taskName"
-                  value={this.state.taskName}
-                  onChange={this.handleChange}
-                />
+              
+              <div className="col-12">
+                <form>
+                  <div className="form-group">
+                    <label htmlFor="project">Name Your Task</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="taskName"
+                      name="taskName"
+                      placeholder="Task Name"
+                      value={this.state.taskName}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="project">Charge per Hour</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="taskRate"
+                      name="taskRate"
+                      placeholder="$"
+                      value={this.state.taskRate}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="project">Hours Worked</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="taskHours"
+                      name="taskHours"
+                      placeholder="Estimate Budget Amount"
+                      value={this.state.taskHours}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <button
+                    className="btn btn-primary btn-lg btn-block my-4"
+                    onClick={this.handleSubmit}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </form>
+                <hr className="m-1 border-info"/>
+                <button
+                    className="btn btn-danger btn-lg btn-block my-4"
+                    onClick={this.handleCancel}
+                    type="submit"
+                  >
+                    Close Task
+                  </button>
               </div>
             </div>
-            <div className="form-group">
-              <div>
-                <label className="form-label">Charge per Hour</label>
-              </div>
-              <div className="col-6 col-mr-auto">
-                <input
-                  className="form-input"
-                  type="taskRate"
-                  name="taskRate"
-                  value={this.state.taskRate}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <div>
-                <label className="form-label">Hours Worked</label>
-              </div>
-              <div className="col-6 col-mr-auto">
-                <input
-                  className="form-input"
-                  type="taskHours"
-                  name="taskHours"
-                  value={this.state.taskHours}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <div className="form-group ">
-              <div className="col-7" />
-              <button
-                className="btn btn-primary"
-                onClick={this.handleSubmit}
-                type="submit"
-              >
-                Save
-              </button>
-              <button className="btn btn-primary " onClick={this.handleCancel}>
-                Cancel
-              </button>
-            </div>
-          </form>
+          </div>
+          
         </div>
       </div>
     );
