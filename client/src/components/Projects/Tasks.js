@@ -129,7 +129,7 @@ class TaskForm extends Component {
                       type="text"
                       id="taskHours"
                       name="taskHours"
-                      placeholder="Estimate Budget Amount"
+                      placeholder="Total Time"
                       value={this.state.taskHours}
                       onChange={this.handleChange}
                     />

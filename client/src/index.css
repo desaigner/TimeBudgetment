@@ -3,6 +3,16 @@ body {
     text-align: center;
 }
 
+.btn2 {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: .375rem;
+  line-height: 0;
+}
+
 .navbg {
     background-color: #e3f2fd;
 }

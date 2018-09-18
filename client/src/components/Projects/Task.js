@@ -28,8 +28,8 @@ class Task extends Component {
           </div>
           <div className="col-md-1">
             <div className="row">
-              <div className="col-12 bg-info mb-1 rounded"><i class="fa fa-edit smFont"></i></div>
-              <div className="col-12 bg-danger rounded"> <i class="fa fa-times smFont"></i></div>
+              <button className="btn btn2 btn-light"><i class="fa fa-edit text-info"></i></button>
+              <button className="btn btn2 btn-light"><i class="fa fa-times text-danger"></i></button>
             </div>
           </div>
         </div>

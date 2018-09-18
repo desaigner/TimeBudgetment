@@ -21,11 +21,19 @@ class Project extends Component {
         <div className="row p-0 border border-danger rounded m-1">
           <div className="col-12">
             <div className="row">
-              <div className="col-md-6"><h3 className="text-left pl-3 pt-2">{aProject.projectTitle}</h3></div>
-              <div className="col-md-6">
+              <div className="col-md-7">
+                <div className="row">
+                  <div className="col-md-6"><h3 className="text-left pl-3 pt-2">{aProject.projectTitle}</h3></div>
+                  <div className="col-md-6"><p className="text-left pt-2 smFont">{aProject.projectDescription}</p></div>
+                </div>
+              
+              </div>
+              <div className="col-md-5">
                 <div className="row pt-2">
-                  <div className="col-6"><p className="text-muted text-left smFont pt-2 ">{new Date(aProject.projectDate).toDateString()}</p></div>
-                  <div className="col-6 justify-content-end"><button className="btn btn-outline-secondary" onClick={event => this.props.handleDelete(event, aProject._id)}><p className="smFont">DELETE</p></button></div>
+                  <div className="col-9"><p className="text-muted text-left smFont pt-2 ">{new Date(aProject.projectDate).toDateString()}</p></div>
+                  <div className="col-3">
+                    <button className="btn btn2 btn-light" onClick={event => this.props.handleDelete(event, aProject._id)}><i class="fa fa-times text-danger"></i></button>
+                  </div>
                 </div>
               </div>
             </div>

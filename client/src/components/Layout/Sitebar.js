@@ -30,53 +30,53 @@ class Navbar extends Component {
     return (
       <div className="bg-light">
         <header className="navbar navbar-light navbg justify-content-center m-2" id="nav-container">
-          <div className="row">
+          <div className="">
             {loggedIn ? (
               <section className="navbar-section">
-                <Link to="/" className="btn btn-link text-secondary">
-                  <small >HOME</small>
+                <Link to="/" className="p-2">
+                  <small className="smFont text-dark" >HOME</small>
                 </Link>
-                &#160;<span className="text-info">|</span>&#160;
-                <Link to="/projects" className="btn btn-link text-secondary">
-                  <small >BUDGETS</small>
+                {/* &#160;<span className="text-info">|</span>&#160; */}
+                <Link to="/projects" className="p-2">
+                  <small className="smFont text-dark" >BUDGETS</small>
                 </Link>
-                &#160;<span className="text-info">|</span>&#160;
-                <Link to="/about" className="btn btn-link text-secondary">
-                  <small >ABOUT</small>
+                {/* &#160;<span className="text-info">|</span>&#160; */}
+                <Link to="/about" className="p-2">
+                  <small className="smFont text-dark" >ABOUT</small>
                 </Link>
-                &#160;<span className="text-info">|</span>&#160;
-                <Link to="/dashboard" className="btn btn-link text-secondary">
-                  <small >PROFILE</small>
+                {/* &#160;<span className="text-info">|</span>&#160; */}
+                <Link to="/dashboard" className="p-2">
+                  <small className="smFont text-dark" >PROFILE</small>
                 </Link>
-                &#160;<span className="text-info">|</span>&#160;
-                <Link to="/contact" className="btn btn-link text-secondary">
-                  <small>CONTACT</small>
+                {/* &#160;<span className="text-info">|</span>&#160; */}
+                <Link to="/contact" className="p-2">
+                  <small className="smFont text-dark">CONTACT</small>
                 </Link>
-                &#160;<span className="text-info">|</span>&#160;
+                {/* &#160;<span className="text-info">|</span>&#160; */}
                 <Link
                   to="/login"
-                  className="btn btn-link text-secondary"
+                  className="p-2"
                   onClick={this.logout}
                 >
-                  <small className="text-danger">LOGOUT</small>
+                  <small className="smFont text-danger">LOGOUT</small>
                 </Link>
               </section>
             ) : (
               <section className="navbar-section">
-                <Link to="/" className="btn btn-link text-secondary">
-                  <small >HOME</small>
+                <Link to="/" className="p-2">
+                  <small className="smFont text-dark" >HOME</small>
                 </Link>
-                &#160;<span className="text-info">|</span>&#160;
-                <Link to="/signup" className="btn btn-link text-secondary">
-                  <small >SIGNUP</small>
+                {/* &#160;<span className="text-info">|</span>&#160; */}
+                <Link to="/signup" className="p-2">
+                  <small className="smFont text-dark" >SIGNUP</small>
                 </Link>
-                &#160;<span className="text-info">|</span>&#160;
-                <Link to="/contact" className="btn btn-link text-secondary">
-                  <small>CONTACT</small>
+                {/* &#160;<span className="text-info">|</span>&#160; */}
+                <Link to="/contact" className="p-2">
+                  <small className="smFont text-dark">CONTACT</small>
                 </Link>
-                &#160;<span className="text-info">|</span>&#160;
-                <Link to="/login" className="btn btn-link text-secondary">
-                  <small className="text-danger">LOGIN</small>
+                {/* &#160;<span className="text-info">|</span>&#160; */}
+                <Link to="/login" className="p-2">
+                  <small className="smFont text-danger">LOGIN</small>
                 </Link>
               </section>
             )}
