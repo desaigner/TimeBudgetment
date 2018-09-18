@@ -72,7 +72,7 @@ class App extends Component {
                             path="/projects"
                             render={() => <Projects user={this.state.user} />}
                         />
-                        <Route path="/dashboard" rander={Dashboard} />
+                        <Route path="/dashboard" render={() => <Dashboard />} />
                         <Route path="/changeInputs" render={() => <ChangeInput />} />
                     </div>
                 </div>
